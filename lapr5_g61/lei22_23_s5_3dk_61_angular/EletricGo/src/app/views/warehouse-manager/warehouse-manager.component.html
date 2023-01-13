@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="warehouse-manager.component.css">
+
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <section>
+      <nav class="navbar">
+        <ul>
+          <li><a [routerLink]="['list-warehouses']">Manage warehouses</a></li>
+          <li><a [routerLink]="['list-deliveries']">Manage deliveries </a></li>
+          <li><a (click)="OnLogout()">Logout</a></li>
+        </ul>
+      </nav>
+    </section>
+    <section>
+      <div class="welcome-message">
+        <div class="first-welcome">
+          <div class="wm">
+            <h1 >Welcome back!</h1>
+            <h2>Let's get to work!😉</h2>
+          </div>
+          <img class="man-image" src="assets/woman.png">
+        </div>
+        <img class="man-image" src="assets/man.png">
+      </div>
+    </section>
+  </div>
+</body>
+</html>

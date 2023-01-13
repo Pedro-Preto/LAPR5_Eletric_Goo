@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="create-delivery.component.css">
+  <title>Document</title>
+</head>
+  <body>
+    <div class="container">
+      <nav class="navbar">
+        <ul>
+          <li><a href="#home">Home</a></li>
+    
+        </ul>
+      </nav>
+      <section>
+        <div class="options">
+          <h1 class="create-title">New Delivery?</h1>
+          <img src="/assets/delivery1.gif" class="image"  alt="delivery" width="230" height="240">
+          <h2 class="create-message-subtitle">Enter all information here!</h2>
+        </div>
+        <section #delivery>
+          <div class="create-form">
+            <div class="create-form-left">
+              <div class="textfield">
+                <input type="text" required #delId="ngModel" [class.is-invalid]="delId.invalid && delId.touched"  name="delId" placeholder="DeliveryIndentifier" [(ngModel)]="dIdentifier">
+                <div *ngIf="delId.touched">
+                  <small *ngIf="delId.errors?.['required']">Delivery Identifier is required!</small>
+                </div>
+              </div>
+          <div class="textfield">
+            <input type="text" name="date" placeholder="Date" required [(ngModel)]="date">
+          </div>
+          <div class="textfield">
+            <input type="number" name="mass" placeholder="Mass" required [(ngModel)]="mass">
+          </div>
+        </div>
+        <div class="create-form-right">
+          <div class="textfield">
+            <input type="number" name="timeLoad" placeholder="TimeLoad" required [(ngModel)]="timeLoad">
+          </div>
+          <div class="textfield">
+            <input type="number" name="timeUnload" placeholder="TimeUnload" required [(ngModel)]="timeUnload">
+          </div>
+          <div class="textfield">
+            <input type="text" name="deliveryWarehouse" placeholder="DeliveryWarehouse" required [(ngModel)]="deliveryWarehouse">
+          </div>
+          <div class="button">
+            <form class="create-form" #createForm="ngForm">
+            <button [disabled]="!createForm.valid"  class="button" [ngClass]="{valid: createForm.valid}" type="submit" (click)="createDelivery()" >Create Delivery!</button>
+                <div *ngIf="submit">
+                  <small class="created-message">Delivery created!</small>
+                </div>
+              </form> 
+          </div>
+          </div>
+          </div>
+        </section>
+      </section>
+    </div>
+
+   
+  </body>
+</html>
