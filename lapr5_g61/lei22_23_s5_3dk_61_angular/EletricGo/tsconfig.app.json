@@ -1,0 +1,22 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/app",
+    "types": []
+  },
+  "files": [
+    "src/main.ts",
+    "src/polyfills.ts",
+    "src/app/views/model/Warehouse.ts",
+    "src/app/views/model/Delivery.ts",
+    "src/app/views/model/Truck.ts",
+    "src/app/views/model/Route.ts",
+    "src/app/views/model/PlannedRoute.ts"
+  ],
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts"
+  ]
+}
+
