@@ -1,0 +1,251 @@
+{
+	"info": {
+		"_postman_id": "b8b04679-5e7a-4932-a763-5d255041221c",
+		"name": "TruckCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23548838"
+	},
+	"item": [
+		{
+			"name": "Verify Truck does not exist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test: 404 Truck does not exist \", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"licencePlate\": \"AA-00-AA\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/truck/getTruck",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"truck",
+						"getTruck"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Truck",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test: 201 Truck created\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"licencePlate\": \"AA-00-AA\",\r\n  \"tare\": 3467,\r\n  \"capacity\": 4689,\r\n  \"maxBateryCapacity\": 124,\r\n  \"autonomyFullChargeLoad\": 189,\r\n  \"timeCharging\": 1\r\n   \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/truck/createTruck",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"truck",
+						"createTruck"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Truck",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test: 200 Truck Updated \", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"licencePlate\": \"AA-00-AA\",\r\n  \"tare\": 3007,\r\n  \"capacity\": 3452,\r\n  \"maxBateryCapacity\": 122,\r\n  \"autonomyFullChargeLoad\": 122,\r\n  \"timeCharging\": 2\r\n   \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/truck/updateTruck",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"truck",
+						"updateTruck"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Truck after update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test: 200 Truck Presented \", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Truck Data updated succecfully!\", function() {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.tare).to.eql(2);\r",
+							" \r",
+							"});\r",
+							"pm.test(\"Truck Data updated succecfully!\", function() {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.capacity).to.eql(2);\r",
+							" \r",
+							"});\r",
+							"pm.test(\"Truck Data updated succecfully!\", function() {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.maxBateryCapacity).to.eql(2);\r",
+							" \r",
+							"});\r",
+							"pm.test(\"Truck Data updated succecfully!\", function() {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.autonomyFullChargeLoad).to.eql(2);\r",
+							" \r",
+							"});\r",
+							"pm.test(\"Truck Data updated succecfully!\", function() {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.timeCharging).to.eql(2);\r",
+							" \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/truck/getTruck/AA-00-AA",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"truck",
+						"getTruck",
+						"AA-00-AA"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Trucks",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test: 200 All Trucks Presented \", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/truck/getAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"truck",
+						"getAll"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
